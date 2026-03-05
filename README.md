@@ -26,7 +26,7 @@ Practice implementing operators and architectures from scratch — the exact ski
 
 [![GitHub Container Registry](https://img.shields.io/badge/ghcr.io-TorchCode-blue?style=flat-square&logo=github)](https://ghcr.io/duoan/torchcode)
 [![Hugging Face Spaces](https://img.shields.io/badge/%F0%9F%A4%97%20Spaces-TorchCode-blue?style=flat-square)](https://huggingface.co/spaces/duoan/TorchCode)
-![Problems](https://img.shields.io/badge/problems-13-orange?style=flat-square)
+![Problems](https://img.shields.io/badge/problems-15-orange?style=flat-square)
 ![GPU](https://img.shields.io/badge/GPU-not%20required-brightgreen?style=flat-square)
 
 </div>
@@ -41,7 +41,7 @@ TorchCode gives you a **structured practice environment** with:
 
 | | Feature | |
 |---|---|---|
-| 🧩 | **13 curated problems** | The most frequently asked PyTorch interview topics |
+| 🧩 | **15 curated problems** | The most frequently asked PyTorch interview topics |
 | ⚖️ | **Automated judge** | Correctness checks, gradient verification, and timing |
 | 🎨 | **Instant feedback** | Colored pass/fail per test case, just like competitive programming |
 | 💡 | **Hints when stuck** | Nudges without full spoilers |
@@ -88,6 +88,7 @@ The bread and butter of ML coding interviews. You'll be asked to write these wit
 | 4 | LayerNorm | `my_layer_norm(x, γ, β)` | ![Medium](https://img.shields.io/badge/Medium-FF9800?style=flat-square) | Normalization, running stats, affine transform |
 | 7 | BatchNorm | `my_batch_norm(x, γ, β)` | ![Medium](https://img.shields.io/badge/Medium-FF9800?style=flat-square) | Batch vs layer statistics, train/eval behavior |
 | 8 | RMSNorm | `rms_norm(x, weight)` | ![Medium](https://img.shields.io/badge/Medium-FF9800?style=flat-square) | LLaMA-style norm, simpler than LayerNorm |
+| 15 | SwiGLU MLP | `SwiGLUMLP` (nn.Module) | ![Medium](https://img.shields.io/badge/Medium-FF9800?style=flat-square) | Gated FFN, `SiLU(gate) * up`, LLaMA/Mistral-style |
 
 ### 🧠 Attention Mechanisms — The heart of modern ML interviews
 
@@ -101,6 +102,7 @@ If you're interviewing for any role touching LLMs or Transformers, expect at lea
 | 10 | Grouped Query Attention | `GroupQueryAttention` (nn.Module) | ![Hard](https://img.shields.io/badge/Hard-F44336?style=flat-square) | GQA (LLaMA 2), KV sharing across heads |
 | 11 | Sliding Window Attention | `sliding_window_attention(Q, K, V, w)` | ![Hard](https://img.shields.io/badge/Hard-F44336?style=flat-square) | Mistral-style local attention, O(n·w) complexity |
 | 12 | Linear Attention | `linear_attention(Q, K, V)` | ![Hard](https://img.shields.io/badge/Hard-F44336?style=flat-square) | Kernel trick, `φ(Q)(φ(K)^TV)`, O(n·d²) |
+| 14 | KV Cache Attention | `KVCacheAttention` (nn.Module) | ![Hard](https://img.shields.io/badge/Hard-F44336?style=flat-square) | Incremental decoding, cache K/V, prefill vs decode |
 
 ### 🏗️ Full Architecture — Put it all together
 
@@ -149,8 +151,8 @@ status()                    # Progress dashboard — solved / attempted / todo
 
 | Week | Focus | Problems | Time |
 |:----:|-------|----------|:----:|
-| **1** | 🧱 Foundations | ReLU → Softmax → Linear → LayerNorm → BatchNorm → RMSNorm | 1–2 hrs |
-| **2** | 🧠 Attention Deep Dive | SDPA → MHA → Causal → GQA → Sliding Window → Linear Attn | 3–4 hrs |
+| **1** | 🧱 Foundations | ReLU → Softmax → Linear → LayerNorm → BatchNorm → RMSNorm → SwiGLU MLP | 1–2 hrs |
+| **2** | 🧠 Attention Deep Dive | SDPA → MHA → Causal → GQA → Sliding Window → Linear Attn → KV Cache | 3–4 hrs |
 | **3** | 🏗️ Integration | GPT-2 Block + speed run (re-implement all, timed) | 1–2 hrs |
 
 ---
